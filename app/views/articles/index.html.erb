@@ -1,0 +1,28 @@
+<h1>List of all articles</h1>
+	
+	<%= link_to "Stwórz swój artykuł", new_article_path %>
+	<% @article1.each do |article| %>
+	<ul>
+		<li>
+		Tytuł: <%= article.title %> <%= link_to "Show article", article_path(article) %>
+		</li>
+	</ul>
+	<ul>
+		<li>
+		Description: <%= article.description %> <%= link_to "Edit article", edit_article_path(article) %>
+		</li>
+	</ul>
+	<ul>
+		<li>
+		Article created by: <%= article.owner %> 
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %> 
+		</li>
+	</ul>
+	<hr>
+
+
+<%end%>
