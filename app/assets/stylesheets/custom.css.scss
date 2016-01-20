@@ -1,2 +1,63 @@
+$navbar-default-bg: #003366;
+$navbar-form: navbar-right;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+	
+	float: left;
+	color: white;
+	font-size: 2em;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+
+}
+
+#logo:hover{
+	color: blue;
+
+}
+
+#all_posts_nav {
+	color: white;
+
+}
+
+.footer_ul {
+
+	text-align: left;
+	float: left;
+	text-transform: uppercase;
+
+}
+
+
+
+
+.jumbotron {
+	background-image: asset-url("pattern.jpg");
+	background-size: cover;
+	height: 500px;
+	background-position: 0, -400px;
+
+}
+
+.article-actions {
+	border-top: 1px solid #eaeaea;
+	padding-top: 5px;
+}
+.description {
+	margin-top: 0;
+}
+
+.article-title {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.article-body {
+	border-top: 1px solid #eaeaea;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

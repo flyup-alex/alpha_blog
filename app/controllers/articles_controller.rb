@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
 	def index
-		@article1 = Article.all
+		@articles = Article.all
 	end
 
 
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find( params[:id] )
 		if @article.update(super_params)
-			flash[:notice] = "Article has been succesfuly updated!"
+			flash[:success] = "Article has been succesfuly updated!"
 		redirect_to article_path(@article)
 
 		else
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 		#render plain: params[:article].inspect
 		@article = Article.new(super_params)
 		if @article.save
-			flash[:notice] = "Article has been created"
+			flash[:success] = "Article has been created"
 		redirect_to article_path(@article)
 
 		else
@@ -50,8 +50,10 @@ class ArticlesController < ApplicationController
 
 	def destroy
 		@article = Article.find( params[:id] )
-		@article.destroy
+		if @article.destroy
+			flash[:danger] = "Article has been destroied"
 		redirect_to articles_path
+		end
 	end
 
 	private

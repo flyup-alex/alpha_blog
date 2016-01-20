@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :comments
   
 
-  get 'pages/about' => 'pages#about'
+  get 'about' => 'pages#about'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
