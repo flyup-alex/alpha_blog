@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:edit, :show, :update]
-before_action :set_same_user, except: [:index, :show, :new]
+before_action :set_user, only: [:edit, :show, :update] 
+before_action :set_same_user, except: [:index, :new]
 
 def index
 	@users = User.paginate(page: params[:page], per_page: 5)
@@ -17,8 +17,10 @@ end
 def create
 	@user = User.new(super_params)
 	if @user.save
-		redirect_to articles_path
+		session[:user_id] = @user.id
 		flash[:success] = "Welcome to the awesome blog!"
+		redirect_to user_path(@user)
+		
 	else
 		render 'new'
 	end
@@ -53,8 +55,7 @@ def set_user
 	
 end
 def set_same_user
-	if logged_in? && @user == current_user
-	else
+	if !logged_in? && @user != current_user
 	flash[:danger] = "You are not allowed to do this action"
 	redirect_to root_path
 	end
