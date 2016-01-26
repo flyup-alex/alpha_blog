@@ -12,7 +12,16 @@ Rails.application.routes.draw do
   
 
   get 'about' => 'pages#about'
-  # Example of regular route:
+
+  get 'signup' => 'users#new'
+
+  resources :users, except: :new 
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

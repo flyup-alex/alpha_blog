@@ -1,0 +1,10 @@
+<h1 ><div align = "center">This is <%= @user.username%>'s board. </h1></div>
+
+<h4><div align = "center"> Please send me an email at: <%= @user.email %>. </h4>
+<div align = "center" ><%= gravatar_for @user, size: 150 %></div>
+<br>
+<h4><div align = "center"> These are my articles.</h4>
+<div align = "center">
+<%= pluralize(@user.articles.count, "article") if @user.articles %>
+</div>
+<%= render 'articles/board', obj: @user.articles.reverse %>

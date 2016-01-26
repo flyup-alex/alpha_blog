@@ -1,0 +1,24 @@
+
+
+
+	<h1 align="center">Listing all articles</h1>
+	<div align = "center"> 
+		<%= will_paginate %>
+	</div>
+		<% @users.each do |user| %>
+		<div align = "center">
+			<h2>
+			<%= link_to user.username, user_path(user) %>
+			</h2>
+		</div>
+		<div align = "center">
+			<h4>
+				<%= pluralize( user.articles.size, "article") %>
+			</h4>
+		</div>
+
+		
+		<% end %>
+	<div align = "center"> 
+		<%= will_paginate %>
+	</div>
