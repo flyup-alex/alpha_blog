@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :set_user, only: [:edit, :show, :update] 
+before_action :set_user, only: [ :show, :update] 
 before_action :set_same_user, except: [:index, :new]
 
 def index
@@ -28,6 +28,8 @@ end
 
 def edit
 	
+	
+	
 end
 
 def update
@@ -51,7 +53,7 @@ def super_params
 end
 
 def set_user
-	@user = User.find( params[:id] ) 
+	@user = User.find( params[:id] )
 	
 end
 def set_same_user

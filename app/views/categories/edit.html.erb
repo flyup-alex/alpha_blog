@@ -1,6 +1,6 @@
-<h1 align="center">Create new category</h1>
+<h1 align="center">Edit this category</h1>
 
-	<%= render 'shared/errors', obj: @category %>
+	<% @category = Category.find(params[:id])%>
 	
 	<%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 	<div class="form-group">

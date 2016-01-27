@@ -65,7 +65,7 @@ before_action :require_same_user, except: [:index, :show, :new, :create]
 
 	private
 	def super_params
-		params.require(:article).permit(:title, :description, :owner, :user_id)
+		params.require(:article).permit(:title, :description, :owner, :user_id, category_ids: [])
 	end
 	
 	def set_article
